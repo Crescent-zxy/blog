@@ -1,6 +1,6 @@
-# 这是我的博客
+# 这是我的博客 ❤️
 
-`console.log('hi')`
+😃 `console.log('hi')`
 
 ```javascript
 console.log('hello')
@@ -16,3 +16,5 @@ console.log('how are you')
 * 动漫
 * 追剧
 * 剪视频
+  
+😊
