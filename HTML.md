@@ -15,7 +15,7 @@ URL + HTML + HTTP
 ```html
 <tag attr=value>  属性值没有空格时可不加引号
 <tag checked='false'>  为选中，checked不再接受内容
-<tag >  #最新语法不用 <tag />
+<tag>  #最新语法不用 <tag />
 ```
 
 ### 起手式
@@ -82,3 +82,18 @@ URL + HTML + HTTP
 
 版权符号：&copy;
 
+##### 用网址打开页面（不要双击打开）
+
+> yarn global add http-server 
+>
+> http-server . -c-1  （没有缓存）
+>
+> 缩写：hs -c-1
+>
+> 打开地址，后面接：/文件名.html
+
+或
+
+> yarn global add parcel
+>
+> parcel 文件名.html
