@@ -35,6 +35,22 @@ URL + HTML + HTTP
 </html>
 ```
 
+###### 完整版 meta:vp ：
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+```
+
+配合
+
+```css
+img {
+    max-width: 100%;
+}
+```
+
+完成响应式布局
+
 ### 错误检查
 
 >  yarn global add node-w3c-validator
@@ -97,3 +113,19 @@ URL + HTML + HTTP
 > yarn global add parcel
 >
 > parcel 文件名.html
+
+##### Emmet 使用
+
+1. ctrl + shift + p
+
+2. emmet wrap
+
+   (输入缩写包围个别行)
+
+###### 多行div
+
+> div*
+
+###### 多行列表
+
+> ul>li*

@@ -1,8 +1,8 @@
 # HTML常用标签
 
-### a
+## a
 
-###### 属性
+##### 属性
 
 * href    超级链接
 
@@ -44,13 +44,13 @@
 * download   下载网页，大部分网页不支持
 * rel = noopener   防止bug
 
-###### 作用
+##### 作用
 
 * 跳转外部页面
 * 跳转内部锚点
 * 跳转到邮箱、电话等
 
-### table
+## table
 
 ```html
 # 完整版
@@ -76,7 +76,7 @@
 </table>
 ```
 
-###### 相关样式
+##### 相关样式
 
 * table-layout
   * auto （ 根据内容分配宽度）
@@ -84,13 +84,20 @@
 * border-collapse：collapse （边框合并）
 * border-spacing （边框间隙，一般为0）
 
-### img
+##### 单元格合并
 
-###### 作用
+td 标签中添加属性
+
+* rowspan="x"  该列合并 x 行
+* colspan="x"  该行合并 x 列
+
+## img
+
+##### 作用
 
 发出 get 请求，展示一张图片
 
-###### 属性
+##### 属性
 
 * alt（加载失败时显示）
 
@@ -102,22 +109,22 @@
 
 * src （图片地址）
 
-###### 事件
+##### 事件
 
 * onload （图片加载成功）
 * onerror （图片加载失败，可用于加载挽救图）
 
-###### 响应式
+##### 响应式
 
 max-width: 100%
 
-###### 可替换元素
+##### 可替换元素
 
 面试可能会问，查看MDN
 
-### form
+## form
 
-###### 作用
+##### 作用
 
 发 get 或 post 请求，然后刷新页面
 
@@ -131,20 +138,20 @@ max-width: 100%
 
 *form表单里必须有一个 type="submit"，才能触发 submit 事件，否则无法提交*
 
-###### 属性
+##### 属性
 
 * action （表单提交地址）
 * autocomplete （根据name类型自动给出建议）
 * method （GET/POST）
 * target （同 a 标签，目标刷新页面）
 
-###### 事件
+##### 事件
 
 onsubmit （提交）
 
-### input
+## input
 
-###### 作用
+##### 作用
 
 用户输入内容（单行输入）
 
@@ -152,7 +159,7 @@ textarea （多行输入）
 
 select + option（选择）
 
-###### 属性
+##### 属性
 
 * 类型 type：
 
@@ -172,7 +179,7 @@ select + option（选择）
 
   HTML5新增功能，如：require
 
-###### 注意事项
+##### 注意事项
 
 * 一般不监听 input 的 click 事件
 * form 里面的 input 要有 name
