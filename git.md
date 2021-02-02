@@ -1,4 +1,4 @@
-# git
+# Git
 
 ### 基本配置
 
@@ -11,81 +11,81 @@ git config --global core.editor "code --wait"
 git config --global core.autocrlf input
 ```
 
+###### .gitignore 文件
+
+不需要提交的变动，常见的有：node_modules、.DS_Store、.idea、.vscode
+
 ### 基本命令
 
->##### git init 
->
->初始化仓库，创建 .git 目录
->
->###### git add 路径
->
->选择提交变动，路径可以是绝对路径、相对路径、
->
->. 和*（ . 代表当前整个目录）
->
->###### .gitignore
->
->不需要提交的变动，常见的有：node_modules、.DS_Store、.idea、.vscode
->
->###### git commit -m "注释"
->
->提交，并说明提交理由
->
->###### git commit -v
->
->--verbose 回顾修改内容，更详细理由
->
->###### git log
->
->版本查看
->
->##### git reflog
->
->查看所有版本，包括回退的
->
->###### git reset --hard XXXXXX
->
->XXXXXX 是提交号前6位或完整号，保持唯一
->
->确保所有代码commit了，该操作会使没有commit的变动消失
->
->##### git status
->
->查看状态
->
->##### git status -sb
->
->简洁状态
->
->##### git config
->
->查看参数
+* #### git init 
+
+  初始化仓库，创建 .git 目录
+
+* #### git add 路径
+
+  选择提交变动，路径可以是绝对路径、相对路径、
+
+  . 和*（ . 代表当前整个目录）
+
+* #### git commit -m "注释"
+
+  提交，并说明提交理由
+
+* #### git commit -v
+
+  --verbose 回顾修改内容，更详细理由
+
+* #### git log
+
+  版本查看
+
+* #### git reflog
+
+  查看所有版本，包括回退的
+
+* #### git reset --hard XXXXXX
+
+  XXXXXX 是提交号前6位或完整号，保持唯一
+
+  确保所有代码commit了，该操作会使没有commit的变动消失
+
+* #### git status
+
+  查看状态
+
+* #### git status -sb
+
+  简洁状态
+
+* #### git config
+
+  查看参数
 
 ### 分支
 
->##### git branch x
->
->基于当前commit创建新分支x
->
->无参数则查看全部分支
->
->##### git branch -d x
->
->删除分支
->
->##### git checkout x
->
->切换到分支x 
->
->未提交代码，不冲突则无影响
->
->冲突使用git stash 或 合并冲突
->
->##### git merge x
->
->合并分支x到当前分支
->
->有冲突就解决冲突
+* #### git branch x
+
+  基于当前commit创建新分支x
+
+  无参数则查看全部分支
+
+* #### git branch -d x
+
+  删除分支
+
+* #### git checkout x
+
+  切换到分支x 
+
+  未提交代码，不冲突则无影响
+
+  冲突使用git stash 或 合并冲突
+
+* #### git merge x
+
+  合并分支x到当前分支
+
+  有冲突就解决冲突
 
 ### 远程仓库
 
@@ -135,48 +135,50 @@ git clone 仓库地址
 
 ```
 touch ~/.bashrc （命令行配置文件）
-echo 'alias ga="git add"'>> ~/.bashrc
-echo 'alias gc="git commit -v"'>> ~/.bashrc
-echo 'alias gl="git pull"'>> ~/.bashrc
-echo 'alias gp="git push"'>> ~/.bashrc
-echo 'alias gco="git checkout"'>> ~/.bashrc
-echo 'alias gst="git status -sb"'>> ~/.bashrc
+echo 'alias ga="git add"' ~/.bashrc
+echo 'alias gc="git commit -v"' ~/.bashrc
+echo 'alias gl="git pull"' ~/.bashrc
+echo 'alias gp="git push"' ~/.bashrc
+echo 'alias gco="git checkout"' ~/.bashrc
+echo 'alias gst="git status -sb"' ~/.bashrc
 ```
 
 最后 code ~/.bashrc 在文件最后加上
 
 ```
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -- | less"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an%Creset' --abbrev-commit -- | less"
 ```
 
 
 
-> ##### git rebase -i 提交号（你要美化的提交前一个）
->
-> 美化历史命令
->
-> p，pick 命令A
->
-> s，squash 命令B
->
-> 合并A、B两次提交
->
-> r，reword：采用，但改写 message
->
-> s， squash：采用，但合并到上一个提交
->
-> 
->
-> ##### rebase 出错
->
-> git recase --abort （取消）
->
-> git rebase --continue （继续）
->
-> 
->
-> 不想提交又不想删除
->
-> ##### git stash （储存）
->
-> ##### git stash pop （恢复）
+### 美化提交
+
+* #### git rebase -i 提交号（你要美化的提交前一个）
+
+   美化历史命令
+
+   p，pick 命令A
+
+   s，squash 命令B
+
+   合并A、B两次提交
+
+   r，reword：采用，但改写 message
+
+   s， squash：采用，但合并到上一个提交
+
+ 
+
+ #### rebase 出错
+
+* git rebase --abort （取消）
+
+* git rebase --continue （继续）
+
+ 
+
+####  不想提交又不想删除
+
+* git stash （储存）
+
+* git stash pop （恢复）
