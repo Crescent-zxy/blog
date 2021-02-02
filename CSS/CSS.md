@@ -112,8 +112,60 @@ box-sizing
 ###### 取消合并
 
 * parent 与 children：border、padding、overflow : hidden、display: flex
-
 * children 与 children：display: inline-block
+
+### position 定位
+
+##### div分层
+
+由底往上：background -> border -> 块级子元素 -> 浮动元素 -> 内联子元素 -> 文字
+
+文字最高，所在元素无关，后出现的文字会覆盖前面的文字
+
+往上一层为 z-index = 0
+
+———  以文字为基准  ———
+
+往下一层为 z-index = -1（低于 background）
+
+———  不能低于HTML标签  ———
+
+##### position
+
+* **static** 默认值，在文档流里
+* **relative** 相对定位，升起来，但不脱离文档流
+  * 用于做位移（很少用）
+  * 用于给 absolute 元素做 parent
+  * 配合 z-index
+    * z-index：默认 auto，计算出为0，不创建新层叠上下文
+    * 不要写 z-index: 9999
+* **absolute** 绝对定位，定位基准是祖先里最近的非 static（一般是relative）
+  * 脱离原来的位置，另起一层（对话框的关闭、鼠标提示）
+  * 配合 z-index
+  * 某些浏览器不写 top/ left 会位置错乱
+  * 善用 left: 100%，top: 100%，比如：居右：left: 100%
+  * 善用 left: 50% + 负 margin / transform: translateX(-50%)
+* **fixed** 固定定位，定位基准是 viewport （有坑）
+  * 使用： 广告、回到顶部按钮
+  * 配合 z-index
+  * 手机上尽量不用这个属性
+  * transform 属性会使其失效
+* **sticky** 粘滞定位
+
+##### 经验
+
+* 写了 absolute ，一般补一个 relative
+* 写了 absolute 或 fixed，一般补 top 和 left
+* sticky兼容性差，一般面试用
+
+##### 层叠上下文
+
+* 每个层叠上下文就使一个新的小世界（作用域）
+* 这个小世界里的 z-index 与外界无关
+* 同一个小世界里的 z-index 才能比较
+* 可以创建层叠的不正交属性：z-index（不为 auto）、flex、opacity（值小于1）、transform（值不为 none）、position: fixed
+* 负的 z-index 逃不出层叠小世界
+* 文档：[层叠上下文MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context)
 
 ### 基本单位
 
