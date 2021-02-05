@@ -39,6 +39,14 @@ URL + HTML + HTTP
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+/*
+width // 设置 viewport 的宽度，正整数/字符串 device-width
+height // 设置 viewport 的高度，正整数/字符串 device-height
+initial-scale // 设置设备宽度与 viewport大小之间的缩放比例，0.0-10.0之间的正数
+maximum-scale // 设置最大缩放系数，0.0-10.0之间的正数
+minimum-scale // 设置最小缩放系数，0.0-10.0之间的正数
+user-scalable // 如果设置为 no 用户将不能缩放网页，默认为 yes，yes / no
+*/
 ```
 
 配合
@@ -50,6 +58,14 @@ img {
 ```
 
 完成响应式布局
+
+###### iOS 10之后不接受meta标签，可通过js监听手势控制，禁止移动端网页缩放
+
+```javascript
+document.addEventListener('gesturestart', function (event) {
+    event.preventDefault()
+})
+```
 
 ### 错误检查
 

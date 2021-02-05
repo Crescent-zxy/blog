@@ -155,7 +155,7 @@ curl 构造请求
 GET / HTTP/1.1                # 协议
 Host: baidu.com               # 域名
 User-Agent: curl/7.65.3       # 访问工具
-Accept: \*/*                  # 期待返回内容（ \*/* 代表都接受）
+Accept: */*                  # 期待返回内容（ */* 代表都接受）
 ```
 
 ##### 做响应
