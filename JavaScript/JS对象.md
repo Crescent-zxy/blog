@@ -102,3 +102,109 @@ obj.hasOwnProperty('key')
 * 修改原型：window.Object.prototype.key = 'xxx'，一般不要修改原型
 
 * 增加、创建原型：let a =  Object.create(obj)，以 obj 为原型创建 a，obj 依然会指向最初的原型，形成原型链
+
+### 类
+
+针对对象的分类
+
+常见：Array、Function、Date、RegExp 等
+
+#### new X()
+
+* 创建空对象
+* 为空对象关联原型，原型地址指定为 X.prototype（将 X.prototype 保存的地址复制到空对象.__proto__ 里）
+* 将空对象作为 this 关键字运行构造函数
+* return this
+
+##### 构造函数 X
+
+可以构造出对象的函数
+
+* 函数本身负责给对象本身添加属性
+* X.prototype 对象负责保存对象的共用属性
+
+###### 函数与原型结合
+
+**对象.\__proto__ === 其构造函数.prototype**
+
+* 所有函数都有 prototype 属性
+* 所有 prototype 都有 constructor 属性
+* 所有 constructor 属性保存了对应的函数地址
+
+#### 原型创建构造函数
+
+```javascript
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.sayHi = function () {
+    console.log('你好，我叫' + this.name)
+}
+```
+
+#### class 关键字创建构造函数
+
+```javascript
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    // 一般不在这个语法里使用箭头函数
+    sayHi() { 
+        console.log("你好，我叫" + this.name)
+    }
+}
+// 等价于上面的原型写法
+```
+
+##### class 第二种写法
+
+```javascript
+class Person{
+ 	 sayHi = () => {} // 一般不在这个语法里使用普通函数，多用箭头函数
+}
+// 等价于
+function Person(){
+	this.sayHi = () => {}
+}
+```
+
+###### 结果
+
+```javascript
+let person = new Person('frank', 18)
+person.name === 'frank' // true
+person.age === 18 // true
+person.sayHi() // 你好，我叫 frank
+
+let person2 = new Person('jack', 19)
+person2.name === 'jack' // true
+person2.age === 19 // true
+person2.sayHi() // 你好，我叫 jack
+```
+
+### Object.prototype
+
+* Object.prototye 是「Object 构造出来的对象 obj」的原型，即 obj.\__proto__ === Object.prototype
+
+* Object.\__proto__ 是 Object 的原型，
+* Object 是函数，而所有函数的原型都是 Function.prototype，所以 Object.\__proto__ === Function.prototype
+
+* Object.prototye 不是 Object 的原型，Object.\__proto__ 才是 Object 的原型
+
+### window
+
+* window 是 Window 构造的
+* window.Object 是 window.Function 构造的
+* 所有函数都是 window.Function 构造的
+* window.Founction 是 window.Function 构造的
+* 浏览器构造了 Function，然后指定它的构造者是自己
+
+### 代码规范
+
+* 构造函数首字母大写
+* 构造出来的对象首字母小写
+* new 后面的函数使用名词形式
+* 其他函数一般用动词开头
