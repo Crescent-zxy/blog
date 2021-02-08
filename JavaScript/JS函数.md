@@ -66,10 +66,9 @@ fn 是函数自身，fn() 是函数调用
     },0)
   }
   // 打出 0 1 2 3 4 5
-  // JS 在 for 和 let 一起用时，每次循环会多创建一个 i
+  // JS 在 for 和 let 一起用时，每次循环会多创建一个 i（JS对新手的特别设计）
   // 可以理解为：
-  let i = 0
-  for(i = 0; i < 6; i++){
+  for(let i = 0; i < 6; i++){
     let j = i;
     setTimeout(()=>{
       console.log(j)
@@ -78,11 +77,11 @@ fn 是函数自身，fn() 是函数调用
   ------- 其他方法 -------
   // 1、用闭包
   for(var i = 0; i < 6; i++){
-  	! function (j) {
-  		setTimeout(() => {
-  			console.log(j)
-  		},0);
-  	}(i);
+    ! function (j) {
+       setTimeout(() => {
+          console.log(j)
+        },0);
+     }(i);
   }
   // 2、用setTimeout第三个参数
   for(var i = 0; i < 6; i++){
@@ -92,7 +91,7 @@ fn 是函数自身，fn() 是函数调用
   } 
   // setTimeout 第三个以后的参数在定时器到期时会作为参数传给 function timer
   ```
-
+  
 * ##### 作用域
 
   * 每个函数都会默认创建一个作用域，函数和作用域可以嵌套
