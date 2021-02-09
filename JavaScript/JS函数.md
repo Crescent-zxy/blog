@@ -2,6 +2,12 @@
 
 JS 里，函数是一种对象
 
+**所有函数都是由 Function 构造的**
+
+任何函数.\__proto__ === Function.prototype
+
+任何函数包括：Object / Array / Function
+
 ### 定义函数
 
 fn 是函数自身，fn() 是函数调用
@@ -58,7 +64,8 @@ fn 是函数自身，fn() 是函数调用
     },0)
   }
   // 打出 6个6
-  // 原因：i循环6次，设置6个setTimeout，setTimeout在for循环结束后才执行，此时的i为6，6个setTimeout打印出i的结果就为6个6
+  // 原因：i循环6次，设置6个setTimeout，setTimeout在for循环结束后才执行
+  // 此时的i为6，6个setTimeout打印出i的结果就为6个6
   --------------
   for(let i = 0; i < 6; i++){
     setTimeout(() => {
@@ -89,7 +96,7 @@ fn 是函数自身，fn() 是函数调用
       console.log(j)
     },0,i)
   } 
-  // setTimeout 第三个以后的参数在定时器到期时会作为参数传给 function timer
+  // setTimeout 第三个及以后的参数会在定时器到期时作为参数传给 function timer
   ```
   
 * ##### 作用域

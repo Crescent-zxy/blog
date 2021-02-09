@@ -109,10 +109,40 @@ obj.hasOwnProperty('key')
 
 常见：Array、Function、Date、RegExp 等
 
+#### JS 创建一个类
+
+```javascript
+// 不使用 new 关键字
+function createPerson(name, age){ // 构造函数
+	let obj = Object.create(createPerson.prototype);
+    obj.name = name;
+    obj.age = age;
+    return obj;
+}
+// 原型
+createPerson.prototype = {  // 把原型放到函数上
+    sayHi(){
+        console.log('你好，我叫' + this.name);
+    },
+    constructor: createSquare  // 方便通过原型找到构造函数
+} 
+let a = createPerson('zxy',18) // 调用构造函数创建a对象
+------- new -------
+// 使用 new 关键字，原型创建构造函数
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.sayHi = function () {
+    console.log('你好，我叫' + this.name)
+}
+let b = new Person('xxx',18) // 创建对象b
+```
+
 #### new X()
 
 * 创建空对象
-* 为空对象关联原型，原型地址指定为 X.prototype（将 X.prototype 保存的地址复制到空对象.__proto__ 里）
+* 为空对象关联原型，原型地址指定为 X.prototype（将 X.prototype 保存的地址复制到空对象.\__proto__ 里）
 * 将空对象作为 this 关键字运行构造函数
 * return this
 
@@ -130,18 +160,6 @@ obj.hasOwnProperty('key')
 * 所有函数都有 prototype 属性
 * 所有 prototype 都有 constructor 属性
 * 所有 constructor 属性保存了对应的函数地址
-
-#### 原型创建构造函数
-
-```javascript
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-Person.prototype.sayHi = function () {
-    console.log('你好，我叫' + this.name)
-}
-```
 
 #### class 关键字创建构造函数
 
@@ -186,6 +204,8 @@ person2.sayHi() // 你好，我叫 jack
 ```
 
 ### Object.prototype
+
+**Object.prototype 是所有对象的（直接或间接）原型**
 
 * Object.prototye 是「Object 构造出来的对象 obj」的原型，即 obj.\__proto__ === Object.prototype
 
