@@ -59,7 +59,7 @@ fn 是函数自身，fn() 是函数调用
   ```javascript
   let i = 0
   for(i = 0; i < 6; i++){
-    setTimeout(()=>{
+    setTimeout(() => {
       console.log(i)
     },0)
   }
@@ -77,7 +77,7 @@ fn 是函数自身，fn() 是函数调用
   // 可以理解为：
   for(let i = 0; i < 6; i++){
     let j = i;
-    setTimeout(()=>{
+    setTimeout(() => {
       console.log(j)
     },0)
   }
