@@ -107,6 +107,7 @@ x.addEventListener('click', e => {
         console.log('button click')
     }
 })
+// 还可以给按钮添加data-id，用dataset获取以data开头的元素值来做一些限制
 ```
 
 #### 封装
