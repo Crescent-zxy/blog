@@ -144,3 +144,35 @@
     * (1).toString()
     * 1 .toString()
     * 1..toString()
+
+### 类型判断
+
+* #### typeof
+
+  * 可以识别出基本类型 boolean,、number、undefined、string、symbol
+
+  * 不能识别 null 和引用数据类型，会把 null、array、object 统一归为 object 
+  * 可以识别出 function
+
+* #### instanceof
+
+  `obj instanceof Object`
+
+  * 不能识别出基本的数据类型
+  * 可以检测出引用类型
+  * 可以检测出使用new声明类型的继承关系
+
+* #### constructor
+
+  `str.constructor === String`
+
+  * 不能判断 null、undefined，null 和 undefined 没有 constructor 方法
+  * 不安全，constructor 的指向可以被改变
+
+* #### Object.prototype.toString.call
+
+  `Object.prototype.toString.call(xxx)`
+
+  较全面
+
+  
