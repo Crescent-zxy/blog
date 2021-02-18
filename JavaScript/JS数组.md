@@ -180,5 +180,55 @@ JS 只提供浅拷贝
   console.log(sum) // 奇数之和：598 
   ```
 
-  
 
+### 数组去重
+
+* 不使用 Set
+
+  ```javascript
+  // 计数排序
+  unique = (array) => {
+      const hash = []
+      for(let i=0;i<array.length; i++){
+          hash[array[i]] = true
+      }
+      const result = []
+      for(let k in hash){
+          result.push(k)
+      }
+      return result
+  }
+  // 缺点：只支持数字或者字符串数组
+  // 如果数组里面有对象，比如 array = [{number:1}, 2]，就会出错
+  ```
+
+* 使用 Set
+
+  ```javascript
+  unique = (array) => {
+      return [...new Set(array)] 
+      // 或者 return Array.from(new Set(array))
+  }
+  // 缺点：API 太新，旧浏览器不支持
+  ```
+
+* 使用 Map
+
+  ```javascript
+  unique = (array) => {
+    let map = new Map();
+    let result = []
+    for (let i = 0; i < array.length; i++) {
+      if(map.has(array[i])) { // 判断 map 中是否已有该 key 
+        continue
+      } else {  // 如果 map 中没有该 key，就加入 result 中
+        map.set(array[i], true);  
+        result.push(array[i]);
+      }
+    } 
+    return result;
+  }
+  // 缺点：API 太新，旧浏览器不支持
+  ```
+
+  

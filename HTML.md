@@ -38,7 +38,7 @@ URL + HTML + HTTP
 ###### 完整版 meta:vp ：
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover">
 /*
 width // 设置 viewport 的宽度，正整数/字符串 device-width
 height // 设置 viewport 的高度，正整数/字符串 device-height
