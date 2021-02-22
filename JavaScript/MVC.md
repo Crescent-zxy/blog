@@ -80,3 +80,15 @@ console.log(arr2)
 
 [前端MVC变形记](https://efe.baidu.com/blog/mvc-deformation/)
 
+### webpack
+
+#### loader 和 plugin 区别
+
+* loader 是加载器，plugin 是插件
+* loader 用于加载文件，webpack 本身只能打包commonjs 规范的 js 文件，其他资源需要 loader 转化加载，举例：
+  * babel-loader 把 ES6 转译成 ES5
+  * css-loader 加载 CSS
+  * style-loader 加载 style 标签
+* plugin 扩展 webpack 功能，举例：
+  * minCssExtractPlugin 把 CSS 抽成文件，通过 link 标签引入
+
