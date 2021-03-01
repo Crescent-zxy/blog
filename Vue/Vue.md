@@ -66,7 +66,7 @@ MVC 中 V 是 Vue 的重点，M 和 C 被简化
     <script>
     export default {
       name: 'App',
-      data(){}, // data 需要写成函数
+      data(){}, // data 需要写成函数，return 一个对象
       method:{}, 
       components: {}
     }

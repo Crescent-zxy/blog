@@ -203,6 +203,14 @@ person2.age === 19 // true
 person2.sayHi() // 你好，我叫 jack
 ```
 
+### super
+
+```javascript
+class a extends b {
+    super() // 调用 b
+}
+```
+
 ### Object.prototype
 
 **Object.prototype 是所有对象的（直接或间接）原型**
