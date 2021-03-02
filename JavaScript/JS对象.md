@@ -173,6 +173,7 @@ class Person {
     sayHi() { 
         console.log("你好，我叫" + this.name)
     }
+    // 该函数出现在 Person 的原型上
 }
 // 等价于上面的原型写法
 ```
@@ -182,6 +183,13 @@ class Person {
 ```javascript
 class Person{
  	 sayHi = () => {} // 一般不在这个语法里使用普通函数，多用箭头函数
+     // 该函数出现在 Person 的实例上
+}
+// 等价于
+class Person{
+    constructor(){
+        this.sayHi = () => {}
+    }
 }
 // 等价于
 function Person(){
@@ -207,7 +215,10 @@ person2.sayHi() // 你好，我叫 jack
 
 ```javascript
 class a extends b {
-    super() // 调用 b
+    super([arguments]);
+	// 调用 b 的构造函数
+	super.functionOnParent([arguments]);
+	// 调用 b 上的方法
 }
 ```
 
