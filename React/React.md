@@ -34,6 +34,13 @@
 React.createElement('div')
 // 标签里的 JS 代码用 {} 扩起来
 <div>{n}</div>
+--------
+const A = () => (<div></div>)
+<A />
+// React.createElement(A)，会执行A函数
+const B = <span></span>
+{ B }
+// 不能写成 <B />，不是函数，无法执行
 ```
 
 ### React.createElement
