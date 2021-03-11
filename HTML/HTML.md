@@ -114,7 +114,7 @@ document.addEventListener('gesturestart', function (event) {
 
 版权符号：&copy;
 
-##### 用网址打开页面（不要双击打开）
+##### 用网址打开页面（不要用本地文件打开）
 
 > yarn global add http-server 
 >

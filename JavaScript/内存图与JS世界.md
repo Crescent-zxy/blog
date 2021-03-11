@@ -63,4 +63,4 @@ xxx.prototype 存储了 xxx 对象的共同属性，这就是原型
 
 ##### 原型链
 
-![内存图](D:\CodeStudy\Notes\JavaScript\Img\内存图.png)
+![内存图](..\Images\内存图.png)

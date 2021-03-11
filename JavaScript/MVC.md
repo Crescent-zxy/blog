@@ -48,12 +48,14 @@ const c = {
 一种观察者设计模式，主要用于组件/对象间通信的优化简化
 
 ```javascript
+--- 实现组件间通信 ---
 const eventBus = $(window)
 // 触发事件
-eventBus.trigger('事件名')
+eventBus.trigger('事件名') // emit
 // 监听事件并响应
 eventBus.on('事件名', <执行函数>)
-// 实现组件间通信
+// 取消事件监听
+eventBus.off('事件名')
 ```
 
 #### 表驱动编程

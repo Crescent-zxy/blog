@@ -98,7 +98,7 @@ Håkon Wium Lie （挪威）
 
 ### 盒模型
 
-box-sizing
+##### box-sizing
 
 * content-box 内容盒，内容是盒子边界，width = 内容宽度(content)
 * boder-box 边框盒，边框是盒子边界，width = 内容宽度(content) + padding + border
@@ -116,7 +116,7 @@ box-sizing
 
 ### position 定位
 
-##### div分层
+#### div分层
 
 由底往上：background -> border -> 块级子元素 -> 浮动元素 -> 内联子元素 -> 文字
 
@@ -130,7 +130,7 @@ box-sizing
 
 ———  不能低于HTML标签  ———
 
-##### position
+#### position
 
 * **static** 默认值，在文档流里
 * **relative** 相对定位，升起来，但不脱离文档流
@@ -163,7 +163,11 @@ box-sizing
 * 每个层叠上下文就使一个新的小世界（作用域）
 * 这个小世界里的 z-index 与外界无关
 * 同一个小世界里的 z-index 才能比较
-* 可以创建层叠的不正交属性：z-index（不为 auto）、flex、opacity（值小于1）、transform（值不为 none）、position: fixed
+* 可以创建层叠的不正交属性：
+  * z-index（不为 auto）
+  * flex、opacity（值小于1）
+  * transform（值不为 none）
+  * position: fixed
 * 负的 z-index 逃不出层叠小世界
 * 文档：[层叠上下文MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context)
 
