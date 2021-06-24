@@ -191,8 +191,20 @@ Håkon Wium Lie （挪威）
 ### 网站推荐
 
 * CSS spec （官方） CSS 2.1 中文版
-
 * caniuse.com （浏览器支持查询）
 * CSS tricks   (CSS使用技巧)
 * freepik 、365PSD（PSD）
 * dribbble.com（UI设计）
+
+### 其他
+
+CSS normalize
+
+```css
+// index.css
+@import-normalize
+```
+
+作用：页面在不同浏览器上默认样式相近
+
+CSS reset：去掉默认样式

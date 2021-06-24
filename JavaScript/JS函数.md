@@ -82,7 +82,7 @@ fn 是函数自身，fn() 是函数调用
     },0)
   }
   ------- 其他方法 -------
-  // 1、用闭包
+  // 1、用立即执行函数
   for(var i = 0; i < 6; i++){
     ! function (j) {
        setTimeout(() => {
@@ -323,5 +323,32 @@ f2() // 等价于 fn.call({ name:'zxy' },1,2)
 --- 对象的函数调用 ---
 obj.fn(1,2) // 等价于 obj.fn.call(obj,1,2)
 // 会把当前对象作为第一个参数传给 this
+```
+
+### 函数式封装
+
+```javascript
+let id = 0
+const createId = () => {
+    id += 1
+    return id
+}
+export { createId }
+```
+
+### 面向对象式封装
+
+```typescript
+let id = 0
+class Id = () => {
+    value: number
+    constructor(){
+        id += 1
+        this.value = id
+    }
+    newStart(){
+        return this.value + 10000
+    }
+}
 ```
 

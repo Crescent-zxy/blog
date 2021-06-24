@@ -182,6 +182,159 @@ grid-row-gap: 15px;
 
 https://cssgridgarden.com/#zh-cn
 
+### 垂直居中
+
+如果 .parent 的 height 不写，.child：padding: 10px 0;  就能垂直居中；
+如果 .parent 的 height 写死了，就很难把 .child 居中；
+忠告：能不写 height 就千万别写 height
+
+* tabel 自带功能
+
+  ```html
+  <table class="parent">
+      <tr>
+        <td class="child">
+       	xxx // 自动居中
+        </td>
+      </tr>
+    </table>
+  ```
+
+* 100% 高度的 afrer before 加上 inline block
+
+  ```html
+  <div  class="parent">
+      <div class="child">
+          xxx
+      </div>
+  </div>
+  ```
+
+  ```css
+  .parent{
+    border: 3px solid red;
+    height: 600px;
+    text-align: center;
+  }
+  
+  .child{
+    border: 3px solid black;
+    display: inline-block;
+    width: 300px;
+    vertical-align: middle;
+  }
+  
+  .parent:before, .parent:after{
+    content:'';
+    outline: 3px solid red;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  ```
+
+* div 装成 table
+
+  ```html
+  <div class="table">
+      <div class="td">
+          <div class="child">
+           xxx
+          </div>
+      </div>
+  </div>
+  ```
+
+  ```css
+  div.table{
+    display: table;
+    border: 1px solid red;
+    height: 600px;
+  }
+  
+  div.tr{
+    display: table-row;
+    border: 1px solid green;
+  }
+  
+  div.td{
+    display: table-cell;
+    border: 1px solid blue;
+    vertical-align: middle;
+  }
+  .child{
+    border: 10px solid black;
+  }
+  ```
+
+* margin-top: -50%
+
+  ```css
+  .parent{
+    height: 600px;
+    border: 1px solid red;
+    position: relative;
+  }
+  .child{
+    border: 1px solid green;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    height: 100px;
+    margin-top: -50px;
+  }
+  ```
+
+* translate: -50%
+
+  ```css
+  .parent{
+    height: 600px;
+    border: 1px solid red;
+    position: relative;
+  }
+  .child{
+    border: 1px solid green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  ```
+
+* absolute margin auto
+
+  ```css
+  .parent{
+    height: 600px;
+    border: 1px solid red;
+    position: relative;
+  }
+  .child{
+    border: 1px solid green;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  ```
+
+* flex
+
+  ```css
+  .parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ```
+
 ### 草图软件
 
 * Balsamiq

@@ -80,7 +80,7 @@ class Welcome extends React.Component {
 
 ###### 注意事项
 
-* 不要直接修改 state：`this.state.n +=1` 无效
+* 不要直接修改 state：`this.state.n += 1` 无效
 
   * state 改变，但 UI 不会自动更新
   * 调用 setState 才会触发 UI 更新（异步更新）
@@ -151,6 +151,8 @@ class Welcome extends React.Component {
 
 <button onClick={this.add}> n+1 </button>
 // 会使 add 里的 this 变成 window
+// 原因：
+// React 事件调用形式：button.onClick.call(null,event)
 
 <button onClick={this.add.bind(this)}> n+1 </button>
 ---- 最终写法 ----
@@ -181,6 +183,11 @@ class A extends React.Component{
     }
 }
 ```
+
+##### onChange 事件
+
+* React 在输入时，实时触发
+* HTML 在鼠标移走时触发，早于 onBlur
 
 ### 与 Vue 区别
 
